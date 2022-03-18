@@ -1,12 +1,8 @@
-import 'dart:io';
-
-import 'package:bp_record/models/blood_pressure_data.dart';
-import 'package:bp_record/screens/home_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:flutter/material.dart';
+import 'package:bp_record/screens/home_screen.dart';
 import 'package:path_provider/path_provider.dart' as p;
-// import 'package:get/get.dart';
-// import 'package:get_storage/get_storage.dart';
+import 'package:bp_record/models/blood_pressure_data.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
