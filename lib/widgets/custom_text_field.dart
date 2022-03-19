@@ -19,11 +19,14 @@ class CustomTextField extends StatelessWidget {
     this.inputFormatters,
     this.onSaved,
     this.keyboardType,
+    this.suffixText,
+    this.autovalidateMode = AutovalidateMode.disabled,
   }) : super(key: key);
 
   final TextEditingController? controller;
+  final AutovalidateMode autovalidateMode;
   final String label;
-  final String? hintText, initialValue;
+  final String? hintText, initialValue, suffixText;
   final String? Function(String?)? validator;
   final bool obscureText, readOnly;
   final Function()? onTap;
@@ -38,6 +41,7 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        autovalidateMode: autovalidateMode,
         keyboardType: keyboardType,
         initialValue: initialValue,
         controller: controller,
@@ -51,6 +55,7 @@ class CustomTextField extends StatelessWidget {
           labelText: label,
           hintText: hintText,
           border: const OutlineInputBorder(),
+          suffixText: suffixText,
           suffix: suffix,
           prefix: prefix,
         ),

@@ -1,6 +1,5 @@
-import 'package:intl/intl.dart';
-
 import '../boxes.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:bp_record/widgets/action_dialog.dart';
@@ -56,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(
         child: Text(
           'No record found',
-          style: TextStyle(fontSize: 24),
         ),
       );
     } else {
@@ -88,13 +86,14 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return const AddRecordScreen();
           }));
         },
+        icon: const Icon(Icons.add),
+        label: const Text('Add Record'),
       ),
       body: ValueListenableBuilder<Box<BloodPressure>>(
         valueListenable: Boxes.getBloodPressureRecords().listenable(),
@@ -122,7 +121,7 @@ class BloodPressureRecordCard extends StatelessWidget {
         children: <Widget>[
           CustomKeyValueCard(
               keyValue: "Recorded Date:",
-              value: DateFormat("dd/MM/yyyy").format(
+              value: DateFormat("dd/MMM/yyyy").format(
                   DateTime.fromMillisecondsSinceEpoch(
                       bloodPressure.recordedDate))),
           CustomKeyValueCard(

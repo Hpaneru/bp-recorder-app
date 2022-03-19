@@ -18,8 +18,8 @@ class CustomContainer extends StatelessWidget {
     this.shadow = false,
     this.border = false,
     this.borderRadius = true,
-    this.margin = const EdgeInsets.all(0),
-    this.padding = const EdgeInsets.all(8.0),
+    this.margin = const EdgeInsets.only(bottom: 15.0),
+    this.padding = const EdgeInsets.all(0),
     this.color,
     this.borderColor,
     this.height,
@@ -41,22 +41,19 @@ class CustomContainer extends StatelessWidget {
         margin: margin,
         padding: padding,
         decoration: BoxDecoration(
-            color: color ?? Colors.white,
-            borderRadius: borderRadius
-                ? const BorderRadius.all(Radius.circular(10))
-                : BorderRadius.zero,
-            // border: border
-            //     ? Border.all(
-            //         // color: borderColor ?? Get.theme.primaryColor, width: 1.5)
-            //     : null,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.08),
-                spreadRadius: 6,
-                blurRadius: 6,
-                offset: const Offset(4, 4),
-              )
-            ]),
+          color: color ?? Colors.white,
+          borderRadius: borderRadius
+              ? const BorderRadius.all(Radius.circular(10))
+              : BorderRadius.zero,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              spreadRadius: 6,
+              blurRadius: 6,
+              offset: const Offset(4, 4),
+            )
+          ],
+        ),
         child: child,
       ),
     );
