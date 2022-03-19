@@ -18,7 +18,7 @@ class BloodPressureAdapter extends TypeAdapter<BloodPressure> {
     };
     return BloodPressure()
       ..id = fields[0] as int
-      ..date = fields[1] as int
+      ..recordedDate = fields[1] as int
       ..leftHand = fields[2] as String
       ..rightHand = fields[3] as String;
   }
@@ -30,7 +30,7 @@ class BloodPressureAdapter extends TypeAdapter<BloodPressure> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.date)
+      ..write(obj.recordedDate)
       ..writeByte(2)
       ..write(obj.leftHand)
       ..writeByte(3)

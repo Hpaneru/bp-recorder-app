@@ -7,7 +7,7 @@ class BloodPressure extends HiveObject {
   @HiveField(0)
   late int id;
   @HiveField(1)
-  late int date;
+  late int recordedDate;
   @HiveField(2)
   late String leftHand;
   @HiveField(3)
